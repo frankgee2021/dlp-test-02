@@ -1,0 +1,5 @@
+{
+    "PIIFields":[
+        "username", "user_email", "password", "driver_license_id"
+    ]
+}
