@@ -1,0 +1,64 @@
+endpoints:
+  # ST1
+  - cluster: Staging
+    frontend:
+        host: "apis.sitetest1.robloxlabs.com"
+        path_template: "/acc-demo-service/{endpoint}"
+    http_methods: ["get"]
+    service_name: acc-demo-service
+    throttling:
+        per_ip:
+            period: "MINUTE"
+            max_in_period: 1000000
+    http_client_settings:
+        request_timeout: "00:00:10"
+    disable_request_context: true
+    enable_apicontrolplane_authorization: false
+  
+  # ST2
+  - cluster: Staging
+    frontend:
+        host: "apis.sitetest2.robloxlabs.com"
+        path_template: "/acc-demo-service/{endpoint}"
+    http_methods: ["get"]
+    service_name: chat-translation
+    throttling:
+        per_ip:
+            period: "MINUTE"
+            max_in_period: 1000000
+    http_client_settings:
+        request_timeout: "00:00:10"
+    disable_request_context: true
+    enable_apicontrolplane_authorization: false
+
+  # ST3
+  - cluster: Staging
+    frontend:
+        host: "apis.sitetest3.robloxlabs.com"
+        path_template: "/acc-demo-service/{endpoint}"
+    http_methods: ["get"]
+    service_name: acc-demo-service
+    throttling:
+        per_ip:
+            period: "MINUTE"
+            max_in_period: 1000000
+    http_client_settings:
+        request_timeout: "00:00:10"
+    disable_request_context: true
+
+    enable_apicontrolplane_authorization: false
+  - cluster: Production
+    frontend:
+        host: "apis.roblox.com"
+        path_template: "/acc-demo-service/{endpoint}"
+    http_methods: ["get"]
+    service_name: chat-translation
+    http_client_settings:
+        retries: 0
+        request_timeout: "00:00:10"
+    throttling:
+        per_ip:
+            period: "SECOND"
+            max_in_period: 1000000
+    disable_request_context: true
+    enable_apicontrolplane_authorization: false
